@@ -47,6 +47,7 @@ export default async function RootLayout({
         >
           <SidebarProvider>
             <AppSidebar history={history} />
+            <SidebarTrigger className="bg-background fixed top-3.5 left-3 z-50 border-yellow-600 shadow-md" />
             <main className="w-full">
               <Header />
               {children}
