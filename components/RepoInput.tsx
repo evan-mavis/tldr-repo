@@ -42,7 +42,7 @@ export default function RepoInput({ value, onChange }: RepoInputProps) {
           <Github className="size-4 sm:size-5" />
         </InputGroupAddon>
         <InputGroupAddon align="inline-start">
-          <InputGroupText className="text-sm! sm:text-base! md:text-xl!">
+          <InputGroupText className="text-xs! sm:text-sm! md:text-base! lg:text-xl!">
             {GITHUB_PREFIX}
           </InputGroupText>
         </InputGroupAddon>
