@@ -10,11 +10,16 @@ import { Button } from "./ui/button";
 interface RepoInputProps {
   value: string;
   onChange: (value: string) => void;
+  onAnalyze?: () => void;
 }
 
 const GITHUB_PREFIX = "https://github.com/";
 
-export default function RepoInput({ value, onChange }: RepoInputProps) {
+export default function RepoInput({
+  value,
+  onChange,
+  onAnalyze,
+}: RepoInputProps) {
   const getRepoPart = (fullValue: string) => {
     if (fullValue.startsWith(GITHUB_PREFIX)) {
       return fullValue.slice(GITHUB_PREFIX.length);
@@ -31,8 +36,10 @@ export default function RepoInput({ value, onChange }: RepoInputProps) {
   };
 
   const handleAnalyze = () => {
-    // value already includes the prefix, ready for analysis
-    // TODO: Implement repository analysis logic
+    if (!value || value === GITHUB_PREFIX) {
+      return; // Don't analyze if input is empty
+    }
+    onAnalyze?.();
   };
 
   return (
